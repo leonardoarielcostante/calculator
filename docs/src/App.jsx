@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import './App.css';
+
 
 function App() {
 
@@ -65,7 +67,7 @@ function App() {
     },
     {
       id: 130,
-      valor: 'x',
+      valor: '*',
       text: 'multiply'
     },
     {
@@ -91,61 +93,28 @@ function App() {
 ];
 
   const [result, setResult] = useState('0');
-
+  
 function handleChange(event) {
-  while(event === 'AC'){
+   if(result === '0' && event != 'AC'){
+    return setResult(event)
+   }else if(event === 'AC'){
+    return setResult('0')
+   }else if(result != '0' && event === '+' || event === '-' || event === '*' || event === '/'){
     return(
-      setResult('0')
-    );
-  }
-  while(event === '1')
+      setResult(result + ' ' + event + ' ')
+    )
+   }else if(result != '0' && event === '='){
     return(
-      setResult(result + '1')
-    );
-  while(event === '2')
-    return(
-      setResult(result + '2')
-    );
-  while(event === '3')
-    return(
-      setResult(result + '3')
-    );
-  while(event === '4')
-    return(
-      setResult(result + '4')
-    );
-  while(event === '5')
-    return(
-      setResult(result + '5')
-    );
-  while(event === '6')
-    return(
-      setResult(result + '6')
-    );
-  while(event === '7')
-    return(
-      setResult(result + '7')
-    );
-  while(event === '8')
-    return(
-      setResult(result + '8')
-    );
-  while(event === '9')
-    return(
-      setResult(result + '9')
-    );
-  while(event === '0')
-    if(result != '0'){
-      return (
-        setResult(result + '0')
-      )
-    }else if(result === '0') {
-      return(
-        setResult('0')
-      )
-    }else {
-      setResult('0')
-    }
+      setResult(eval(result))
+    )
+   }
+
+
+
+
+   else {
+    return setResult(result + event)
+   }
 }
 
   return (
