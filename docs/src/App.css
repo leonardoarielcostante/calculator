@@ -1,20 +1,41 @@
-.calculadora {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .botones {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  
-  .botones button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    width: 80px;
-  }
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  width: fit-content;
+}
+
+.numeros button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.botones {
+  display: flex;
+}
+
+.simbolos{
+  display: grid;
+  grid-template-columns: 1fr;
+  width: fit-content;
+}
+
+.inputs{
+  width: 260px;
+  text-align: end;
+}
+
+.titulo {
+  text-align: center;
+  padding-bottom: 10px;
+}
